@@ -1,0 +1,90 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// {
+		// 	"path": "pages/login/login",
+		// 	"style": {
+		// 		"navigationBarTitleText": "登陆"
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/login/changePwd/changePwd",
+		// 	"style": {
+		// 		"navigationBarTitleText": "密码修改"
+		// 	}
+		// },
+		{
+			"path": "pages/tabbar/about/about",
+			"style": {
+				"navigationBarTitleText": "关于"
+			}
+		},
+		{
+			"path": "pages/tabbar/collect/collect",
+			"style": {
+				"navigationBarTitleText": "收藏"
+			}
+		},
+		{
+			"path": "pages/tabbar/components/components",
+			"style": {
+				"navigationBarTitleText": "组件"
+			}
+		},
+		{
+			"path": "pages/tabbar/funstyle/funstyle",
+			"style": {
+				"navigationBarTitleText": "样式"
+			}
+		},
+		{
+			"path": "pages/tabbar/wxminiprograme/wxminiprograme",
+			"style": {
+				"navigationBarTitleText": "小程序"
+			}
+		}
+		
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "HaHaDesign",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"borderStyle": "white",
+		"backgroundColor": "#e6e6e6",
+		"color": "#8F8F94",
+		"selectedColor": "#33ccff",   /* #ffcc00深黄色 */
+		"list": [{
+				"pagePath": "pages/tabbar/funstyle/funstyle",
+				"iconPath": "static/image/funstyle.png",
+				"selectedIconPath": "static/image/funstyleselect.png",
+				"text": "样式"
+			},
+			{
+				"pagePath": "pages/tabbar/components/components",
+				"iconPath": "static/image/components.png",
+				"selectedIconPath": "static/image/componentsselect.png",
+				"text": "组件"
+			},
+			{
+				"pagePath": "pages/tabbar/collect/collect",
+				"iconPath": "static/image/collect.png",
+				"selectedIconPath": "static/image/collectselect.png",
+				"text": "收藏"
+			},
+			{
+				"pagePath": "pages/tabbar/wxminiprograme/wxminiprograme",
+				"iconPath": "static/image/wxminiprograme.png",
+				"selectedIconPath": "static/image/wxminiprogrameselect.png",
+				"text": "小程序"
+			},
+			{
+				"pagePath": "pages/tabbar/about/about",
+				"iconPath": "static/image/about.png",
+				"selectedIconPath": "static/image/aboutselect.png",
+				"text": "关于"
+			}
+		]
+	}
+}

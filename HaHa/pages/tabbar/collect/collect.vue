@@ -1,0 +1,13 @@
+<template>
+	<view class="content">
+		<image class="titleimg" src="../../../static/image/listimg.png"></image>
+		<view class="test">收集相关的学习资料,以及相关的网址</view>
+		
+	</view>
+</template>
+
+<script>
+</script>
+
+<style>
+</style>

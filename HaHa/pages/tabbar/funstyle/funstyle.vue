@@ -1,0 +1,12 @@
+<template>
+	<view class="content">
+		<image class="titleimg" src="../../../static/image/listimg.png"></image>
+		<view class="test">收集有趣的样式</view>
+	</view>
+</template>
+
+<script>
+</script>
+
+<style>
+</style>
