@@ -1,0 +1,22 @@
+.titleimg{
+	display: block;
+	height: 343upx;
+	width: 300upx;
+	margin: 50upx auto;
+}
+.fillwidth{
+	width: 100%;
+}
+.m0a{
+	margin: 0 auto;
+}
+.flex-row-around{
+	display: flex;
+	flex-direction: row ;
+	justify-content: space-around;
+}
+.flex-col{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
