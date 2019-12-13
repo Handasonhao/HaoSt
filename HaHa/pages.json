@@ -12,7 +12,6 @@
 		// 		"navigationBarTitleText": "密码修改"
 		// 	}
 		// },
-		
 		{
 			"path": "pages/tabbar/about/about",
 			"style": {
