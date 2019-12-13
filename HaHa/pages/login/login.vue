@@ -4,6 +4,9 @@
 		<view class="qqq">
 			我来了 github  
 		</view>
+		<view class="qqqq">
+			我真滴来啦
+		</view>
 	</view>
 </template>
 
