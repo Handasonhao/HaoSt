@@ -5,7 +5,7 @@
 			我来了 github  
 		</view>
 		<view class="qqqq">
-			我真滴来啦
+			我真滴来啦jjjj
 		</view>
 	</view>
 </template>
