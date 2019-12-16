@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<image class="titleimg" src="../../../static/image/listimg.png"></image>
+		<image class="titleimg" src="../../../static/image/logo.png"></image>
 		<view class="showmsg">收集有趣的样式</view>
 		<view class="listbox" v-for="(item,index) in player" :key="index">
 			<WhhCommonList @buttonClick="ClickFun($event,index)" :rawdata="testData"></WhhCommonList>

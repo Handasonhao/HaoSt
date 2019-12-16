@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<image class="titleimg" src="../../../static/image/listimg.png"></image>
+		<image class="titleimg" src="../../../static/image/logo.png"></image>
 		<view class="showmsg">个人的一些展示</view>
 		<view class="listbox" v-for="(item,index) in player" :key="index">
 			<WhhCommonList @buttonClick="ClickFun($event,index)" :rawdata="testData"></WhhCommonList>
@@ -32,7 +32,7 @@
 		methods:{
 			ClickFun:function(e,i){
 				console.log("e" , e);
-				console.log("i: " , i);
+				// console.log("i: " , i);
 			}
 		}
 	}
