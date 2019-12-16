@@ -14,7 +14,7 @@
 		<view v-if="rawdata.buttonText" class="buttonview" 
 		:class="{'applyed':rawdata.statusType==0,'approved':rawdata.statusType==1,'dispatching':rawdata.statusType==2,'completed':rawdata.statusType==3,'error':rawdata.statusType==4}" 
 		>{{rawdata.buttonText}}</view>
-		<view class="" v-else><i class="WHH iconjiantou"></i></view>
+		<view class="mr20" v-else><i class="WHH iconjiantou"></i></view>
 	</view>
 </template>
 <!-- -1表示默认颜色 0表示已申请颜色 1表示已审批颜色 2表示配送中颜色 3表示已完成颜色 4表示错误报警颜色-->
@@ -102,6 +102,9 @@
 		height: 80upx;
 		margin-left: 10upx;
 	}
+	.mr20{
+		margin-right: 20upx;
+	}
 	.textContent{
 		width: 400upx;
 		margin-left: 20upx;
@@ -119,6 +122,7 @@
 		line-height: 50upx;
 		font-size: 35upx;
 		font-weight: bold;
+		margin-left: 10upx;
 		margin-bottom: 5upx;
 		margin-top:5upx;
 	}
@@ -126,6 +130,7 @@
 		height: 50upx;
 		line-height: 50upx;
 		font-size: 30upx;
+		margin-left: 10upx;
 		margin-bottom: 5upx;
 		margin-top:5upx;
 	}
