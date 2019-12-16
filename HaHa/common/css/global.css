@@ -40,13 +40,17 @@
   content: "\e635";
 }
 /***** 项目字体图标引入 *****/
+
+/* 背景样式设置 */
 body{
 	background-color: #EEEEEE;
 }
+/* 背景样式设置 */
+
 /* 主题图标样式 */
 .titleimg{
 	display: block;
-	height: 343upx;
+	height: 300upx;
 	width: 300upx;
 	margin: 50upx auto;
 }
@@ -56,6 +60,7 @@ body{
 }
 /* 主题图标样式 */
 
+/* 简写样式,方便快速引用 */
 .fillwidth{
 	width: 100%;
 }
@@ -72,3 +77,22 @@ body{
 	flex-direction: column;
 	justify-content: space-between;
 }
+.mr20{
+	margin-right: 20upx;
+}
+.mt100{
+	margin-top: 100upx;
+}
+.defbutton{
+	width: 700upx;
+	height: 100upx;
+	line-height: 100upx;
+	text-indent: 100upx;//首字符缩进100upx
+	letter-spacing: 100upx;//字符间距扩大100upx,需要和text-indent一起使用才可以出现字符间距扩大且居中的效果
+	text-align: center;
+	margin: 50upx auto;
+	background-color: #ffcc00;
+	border-radius: 5upx;
+	
+}
+/* 简写样式,方便快速引用 */
