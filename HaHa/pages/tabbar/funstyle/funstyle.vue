@@ -1,5 +1,8 @@
 <template>
 	<view class="content">
+		<view class="stickybox">
+			<whhNavbar></whhNavbar>
+		</view>
 		<image class="titleimg" src="../../../static/image/logo.png"></image>
 		<view class="showmsg">收集有趣的样式</view>
 		<view class="listbox" v-for="(item,index) in player" :key="index">
@@ -10,10 +13,11 @@
 
 <script>
 	import WhhCommonList from '../../../components/whh-list/whh-list.vue';
+	import whhNavbar from '../../../components/whhNavbar/whhNavbar.vue';
 	export default {
 		data (){
 			return {
-				player:[1,2,3,4],
+				player:[1,2,3,4,5,6,7,8,9,10,11,12],
 				testData:{
 					imageSrc:'', //图片地址
 					buttonText:'',//按钮信息
@@ -27,7 +31,8 @@
 			
 		},
 		components:{
-			WhhCommonList
+			WhhCommonList,
+			whhNavbar
 		},
 		methods:{
 			ClickFun:function(e,i){
@@ -39,5 +44,8 @@
 </script>
 
 <style>
-	
+.stickybox{
+	position: sticky;
+	top: 0;
+}
 </style>
