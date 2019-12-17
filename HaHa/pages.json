@@ -46,7 +46,8 @@
 		{
 			"path": "pages/tabbar/funstyle/funstyle",
 			"style": {
-				"navigationBarTitleText": "样式"
+				"navigationBarTitleText": "样式",
+				"navigationStyle":"custom"
 			}
 		},
 		{
