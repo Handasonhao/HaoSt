@@ -3,16 +3,18 @@
 		<view v-if="rawdata.imageSrc" class="imageview">
 			<image  class="imageTip" :src="rawdata.imageSrc" mode="aspectFit"/>
 		</view>
-		<view class="textContent" :class="rawdata.buttonText?'':'nobutton'">
-			<view class="title" v-if="rawdata.title">
-				{{rawdata.title}}
+		<view class="textContent" :class="rawdata.buttonText && rawdata.imageSrc?'':'nobutton'">
+			<view class="title" v-if="rawdata.title1 || rawdata.title2">
+				<span>{{rawdata.title1}}</span>
+				<span>{{rawdata.title2}}</span>
 			</view>
-			<view class="tips" v-if="rawdata.tips">
-				{{rawdata.tips}}
+			<view class="tips" v-if="rawdata.tips1 || rawdata.tips2">
+				<span>{{rawdata.tips1}}</span>
+				<span>{{rawdata.tips2}}</span>
 			</view>
 		</view>
 		<view v-if="rawdata.buttonText" class="buttonview" 
-		:class="{'applyed':rawdata.statusType==0,'approved':rawdata.statusType==1,'dispatching':rawdata.statusType==2,'completed':rawdata.statusType==3,'error':rawdata.statusType==4}" 
+		:class="{'green':rawdata.buttonColor== 'green','wineRed':rawdata.buttonColor== 'wineRed','blue':rawdata.buttonColor== 'blue','gray':rawdata.buttonColor== 'gray','red':rawdata.buttonColor== 'red'}" 
 		>{{rawdata.buttonText}}</view>
 		<view class="mr20" v-else><i class="WHH iconjiantou"></i></view>
 	</view>
@@ -20,7 +22,7 @@
 <!-- -1表示默认颜色 0表示已申请颜色 1表示已审批颜色 2表示配送中颜色 3表示已完成颜色 4表示错误报警颜色-->
 <script>
 	export default{
-		name:'WhhCommonList',
+		name:'whhCommonList',
 		data(){
 			return {
 				
@@ -31,27 +33,21 @@
 				type:Object,
 				default:function(){
 					return {
-						imageSrc:'../../static/noOK.png',
-						buttonText:'已申请',
-						title:'标题',
-						tips:'',
-						statusType:-1
+						imageSrc:'',
+						buttonText:'',
+						title1:'',
+						title2:'',
+						tips1:'',
+						tips2:'',
+						buttonColor: 'blue'
 					}
 				}
 			}
 		},
 		methods:{
 			Clickevent:function(){
-				var option = {
-						rawdata:{
-							buttonText: this.rawdata.buttonText,
-							imageSrc: this.rawdata.imageSrc,
-							title: this.rawdata.title,
-							tips: this.rawdata.tips,
-						},
-						type:`${this.rawdata.tips}-${this.rawdata.title}`
-				}
-				this.$emit('buttonClick',option)
+				var option = this.rawdata;
+				this.$emit('listClick',option)
 			}
 		},
 		
@@ -115,6 +111,7 @@
 		// text-align-last: justify;//实现两端对齐，必须先定义宽度
 		&.nobutton{
 			width: 550upx;//条件样式的一种用法，可以继承最开始定义的元素样式，只要在该父样式下写需要改变的样式即可
+			margin-left: 5upx;
 		}
 	}
 	.title{
@@ -125,38 +122,48 @@
 		margin-left: 10upx;
 		margin-bottom: 5upx;
 		margin-top:5upx;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
 	}
 	.tips{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
 		height: 50upx;
 		line-height: 50upx;
 		font-size: 30upx;
 		margin-left: 10upx;
 		margin-bottom: 5upx;
-		margin-top:5upx;
+	}
+	span{
+		display: block;
+		width: 190upx;
+		text-indent: -10upx;
 	}
 	.buttonview{
 		font-size: 30upx;
 		width: 150upx;
-		height: 70upx;
-		line-height: 70upx;
+		height: 55upx;
+		line-height: 55upx;
 		margin-right: 20upx;
 		background: #007AFF;
 		text-align: center;
 		color: white;
 		border-radius: 100px;
-		&.applyed{
+		&.green{
 			background: #09BB07;
 		}
-		&.approved{
+		&.wineRed{
 			background: #DD4A68;
 		}
-		&.dispatching{
+		&.blue{
 			background: #007AFF;
 		}
-		&.completed{
+		&.gray{
 			background: #6D6D72;
 		}
-		&.error{
+		&.red{
 			background: red;
 		}
 	}

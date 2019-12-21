@@ -1,16 +1,16 @@
 <template>
 	<view class="navbar">
 		<view class="navbarbox">
-			<view class="statusbox">
+			<view class="statusbox" :style="{height: statusBarHeight + 'px'}"> <!-- 绑定行内样式的写法? -->
 				<!-- 状态栏空余 -->
 			</view>
-			<view class="iconview">
+			<view class="iconview" :style="{height: navbarHeight + 'px'}"> <!-- 绑定行内样式的写法? -->
 				<view class="iconbox">
 					<icon class="WHH icongongxiangtubiaozhuangtaileicaozuolei59" @click="option('back')"></icon>
 					<icon class="WHH iconvertical_line"></icon>
-					<icon class="WHH iconhome" @click="option('home')"></icon>
-					<icon class="WHH iconsaoma" @click="option('saoma')"></icon>
-					<icon class="WHH iconsousuo" @click="option('search')"></icon>
+					<icon v-show="home" class="WHH iconshouye" @click="option('home')"></icon>
+					<icon v-show="saoma" class="WHH iconsaoma" @click="option('saoma')"></icon>
+					<icon v-show="search" class="WHH iconsearch" @click="option('search')"></icon>
 				</view>
 			</view>
 		</view>
@@ -18,68 +18,80 @@
 </template>
 
 <script>
+	var sysinfo = wx.getSystemInfoSync();
+	var isiOS = sysinfo.system.indexOf('iOS') > -1 ;
+	var isnavbarHeight = isiOS ? 44:48;
 	export default {
 		name:'whhNavbar',
 		data(){
 			return {
-				
+				statusBarHeight: sysinfo.statusBarHeight,
+				navbarHeight: isnavbarHeight
 			}
 		},
-		mounted() {
-			
+		props:{
+			home:{
+				type: Boolean,
+				default: false
+			},
+			saoma:{
+				type: Boolean,
+				default: false
+			},
+			search:{
+				type: Boolean,
+				default: false
+			}
 		},
 		methods:{
-			option:function(e){
-				switch (e){
-					case 'back':console.log(e);break;
-					case 'home':console.log(e);break;
-					case 'saoma':console.log(e);break;
-					case 'search':console.log(e);break;
-					default:break;
-				}
+			option:function(where){
+				var option = {
+					to: where
+				};
+				this.$emit('option',option);
 			}
 		}
 	}
 </script>
 
-<style lang="scss">
+<style>
 /***** 项目字体图标引入 *****/
 	@font-face {font-family: "WHH";
-	  src: url('http://at.alicdn.com/t/font_1564826_idfhp53j46.eot?t=1576484733712'); /* IE9 */
-	  src: url('http://at.alicdn.com/t/font_1564826_idfhp53j46.eot?t=1576484733712#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAVgAAsAAAAACqgAAAUTAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDVgqIGIcTATYCJAMcCxAABCAFhDEHgQIbSQkjEbZ7ULKS/QW2DXtoxuJk7QYAWDBCJIrv8/gjEAcJAZAAANgBCbSBDwAAAAAInvi86lXqh5PhUuo1fJJxA3Hr/1tb/4PPQNr1DjQSRA95BI3Q6OJ1t4pF9O5SsXTvSrmhc60oQaYbVYCOt099esELXOBXkhX9UyUu+LfW8r8EvjJF94SWdVH+UZbvcrObLWpZo6oaAMffr3jTF7B+AOCbjSyKDlpakgWJi27hAzk8USwbteWAF71YjVWvq+MhQEBG8iPVa9ZvhofBrCaA9OvdszNezoBpYAme2lG2Ncgi8njWbOsmBAvDz5dPOFICC1sxJ4r0qNGNym8p++mkKGKmkzhPZwOOO4EC+QEDMkF1jELjcH6U4H4VQ30gxMPCvKV038a/LVv2i0bJMeMkxiGEQon7Bw9sHBSDYIE4QBEyo1XEgbe4Ouy70oVAU8ZBh0IZDx0GyrLQIVD2QxkWAK6/TRyQHKQmyCOMKn+4L0FxUWwkIaz4acK5pYICXdvnDzJuvBXyVBIE6F5Cg/o+/Nxydi/4s5KPcv14iOdT3u/8dlu2h4z3RBV3KS8E7ojdbo4uEfW2B5YXJI2DDj7vObpg9P5mQd/XwhDl8tGgSKFYDNcSxW5qw+kmoetDY/QigfNuI2BArTWBTjxPBWQhHBAuQb3lBBdjaoSutvDPjBMS8SaEYBue1ye7kznIBKSq6DnB4j5DT1EFAhwo/VG5WnPk/bNk4fxWo0jyLvn2ggY3nJ230tod6ZpEY2Ty9py5k41KJGFs924tevZomVSosI4EkVFOp3AGGfV8jUlIyH0J8sGTpAWV69i9+vEjDeleBkj4nOGJfh3Pn9l/7MzJvkMuVyaz9ts2yRrJMnZslkjWJocdFEw/dmwkS5Osh5WCNkUfmDRpcn+CfPAk6fk6ZJk04vv/6kEsvFo3x2w5ewLJyqpvma+wKWbxfZMfFPwuWYb4BTkZPE72C07qmuQdJdaqViavGHL8u/J9+2X15NuTddRYT4Vh5mQfCXXwJVk3ivTgHwiRnknHr3Erq/nSrn1Ydq0bbHkf9f9mic1GjVr2X24ugwdLc2kG8PjpOZplWitucYHmicd9y6ue1DQl1dq0qS7VhICAEB4g66zmcrZ6dSpXap7IjCM1r8aX4HXNC8/3wWv8+N+aP4y44m5NrtacW/OWPrP4ut76muvRN/R/806+F47v33v4qLGj6QBAdGMl1z5EM/2tHLKPel9LRmca0VF/9a/hxuu44i6+/B/v3ADwMENnPMqimUEnAf9XJZ2Ff2xhxwHzEBuja27t3SoEcJn3JwhaQCBj8If2JPF0OlWKzkEQNCc8YhYuqTFFyUQxjKyYTQw5MAelMBaQj2I7x5CMDihifCAvgy2ZkGotMIs41mGKwx6KYRzCbFJy8a/sSFR/wM54/d/nOQ/SIguPKWMB2RfonCrhzOWzt+32EWV0qY8B817RB00V9NrdXGyDFfruG4R32WcWIDyVsO55MnSOoPZkMOe2Yq7nnY7QnqidU9k4Y+ExZSyA7AvQOVXCT+Yz3ray8iPK6FJfFpLtFe+OoDtnAz3adHXKRlE1tVyiOLzLPiw2AW7QU8mq9aI2dBwmoNaXMphzGzUgWM/p0CjRVdHevKp8J2WgA3NPrliiYsQWR1zxuByBnnWeup3TFT5IquSnTj0rxyzw07eKqS/VDpvRSxcpOuBodqCoxKNAMUQ6DCmV6bHpEWKKjQY=') format('woff2'),
-	  url('http://at.alicdn.com/t/font_1564826_idfhp53j46.woff?t=1576484733712') format('woff'),
-	  url('http://at.alicdn.com/t/font_1564826_idfhp53j46.ttf?t=1576484733712') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-	  url('http://at.alicdn.com/t/font_1564826_idfhp53j46.svg?t=1576484733712#WHH') format('svg'); /* iOS 4.1- */
+	  src: url('http://at.alicdn.com/t/font_1564826_ib9lixhv52.eot?t=1576801718617'); /* IE9 */
+	  src: url('http://at.alicdn.com/t/font_1564826_ib9lixhv52.eot?t=1576801718617#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAU8AAsAAAAACaQAAATvAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDXgqGDIUTATYCJAMcCxAABCAFhDEHgQQbUwgRVaRlkH2NsTG0btGMfZNI7PUtrkkxYtgURacey8e/++Cq0Ct4AQAAAACCoh/77X0Ri4aHpI1oSRMJT1Q8JHFreAmQmC7aSc////19+7z7vpHGjGIF0Ow2ayqUIFRQbaaE4fncvb9b2ylGFPhJJAF239pvPm55E9HEI2ez8k/m2JtFPPKI9Tcs0QkAo9Z0/zn3KaJmizA+VZVMCgEVkSIMqiIKV3t3/O1d0NprP6EMgx9YwG1BIBxBBfj/x73jlvctkOc5/t+Yi8YeQJ13HuAYExd3gRdIwp5CeTaddHLl33QcAvDAghsK2dg7gwYPMk4ASjHKh47k4BsQQSwSVixlQc0QQEx3cKcAJvT39YmRiIAFAgbkpKbO9Qj2m/CSwrT+Q7q1Fa3TaYHjKmAFqABsgCor9WNg1lWBQXrvzSMeBCAGB+FUnzV5cXhxfvF6Sfkf55NWQUn/4AEHBGDgQeAA8QDftyO1uh3Am5PTvSAKKXYISiDFCkE5pNggqIQUQdCPFCwA4JRLAgBBgE9AviDCCr2fwMCBQQAyVLlEq6bZW443iYre2mOks0eitt6k1NFNw8tTUz13zetUv2y1emg0U6XqSuUKWzk7X7zwU8mf0lUFFCsDYo+sxwpkpbJdcdprE3HztbGY2ZX1ZPxCXTx2rri5c1IkFUeNn3hlnVNgbLS/ridOF3d7ZfSQpAF7r9jAjL05RfdN5gnT1pMg7V1wZHxarG1m0PCjd3wladTdM7bY3tnpkZJsbAp40iCjDM4US7raLttomLFPZyipiOnQOtnmlM7ewdjoQsnLrkFh9lFT9F1dtu4Ciyo+Yg0jf0RRiQm2j5OPNSwzvx8EZ3GHgb27om6mhH/uXt883fdl/QbgrZXmVmzsME9aATL8qEPB0WGnKNeHcQuLQo+ynZubUzu1zZ+Pq63m5i1trH32DL8ZeLesLiw86zgDdUVs3ZmZ+XP4QUv8Fc97QS8/gtMailIFn6ra//Z/Pl87J+n4Mzs126L3Zf9qXDtiz7T7F8TYdoIfibhdWlx87JL+BJyYhfqByunYb76yuRquH5Y7KGKb3sh00HnAptmZ3/7kQfVZj5sc+I9Lb92eN2k85NBsk7vx3Z87rb0x3zQ7D5wmb+j7qc+v+WtuQWrc3eM9HABmT0wZAMwAf5hIYPa5x/gD5pb7jD1g+hldXft3+w3q/l8JD/p/sYwHgNes27pOMf0GrBj4zwjQmfHnYnSssz1YROFkb6X5SATgRBIL+Co6eCAF+EuZI96nE8Y7R4LAYPBggQhmsILBEmcj2YAdMtiDAwxe4IEr39Ve6GRSIFYCIClznXEJwkEAR2kIGKEFHE9aAwGjCldIhVcAqcT/LWUc4k7CLPqMkQjuhQkpk6wnN11ubZ2gcolvLYZeF2gLQ5kYHhiKvJuYoe0+o7hRI8xSSEup2Oh5GiYJidxSGUMe0Mz5zOCgrHrSQEgpNAmz6DNGQnAvmJAyKQO5SdIWHX2CyiW+LTJy7QXe9YXpHCkMGzBUjdvkZ01Fl0gsbtQIplopuMNSuhNuLKrFZOciIa8eVMaQB+gBjnzGYN5MduUPbF6YvpNtgAe5kTMcMeJJQEISkRiKi5ZN6CdXicmwX1Gm7owvNOwCZaMH7bzVNwk2oy+pIxM/Pl1Xgb4Nteqtyd1jbeFT6teX+ziZHAA=') format('woff2'),
+	  url('http://at.alicdn.com/t/font_1564826_ib9lixhv52.ttf?t=1576801718617') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+	  url('http://at.alicdn.com/t/font_1564826_ib9lixhv52.woff?t=1576801718617') format('woff'),
+	  url('http://at.alicdn.com/t/font_1564826_ib9lixhv52.svg?t=1576801718617#WHH') format('svg'); /* iOS 4.1- */
 	}
-	
 	.WHH {
 	  font-family: "WHH" !important;
 	  font-size: 24px;
 	  font-style: normal;
+	  font-weight: 600;
 	  -webkit-font-smoothing: antialiased;
 	  -moz-osx-font-smoothing: grayscale;
 	}
-	
+
 	.iconvertical_line:before {
 	  content: "\e63a";
-	  color: #EEEEEE;
+	  color: #C8C7CC;
 	}
-	
+
 	.icongongxiangtubiaozhuangtaileicaozuolei59:before {
 	  content: "\e66c";
 	}
-	
-	.iconhome:before {
-	  content: "\e60e";
+
+	.iconsearch:before {
+	  content: "\e628";
 	}
-	
-	.iconsousuo:before {
-	  content: "\e60f";
+
+	.iconshouye:before {
+	  content: "\e62b";
 	}
-	
+
 	.iconsaoma:before {
-	  content: "\e600";
+	  content: "\e613";
 	}
 
 /***** 项目字体图标引入 *****/
@@ -87,20 +99,17 @@
 	width: 100%;
 	background-color: #fff;
 }
+
 .statusbox{
-	height: var(--status-bar-height);
 	width: 100%;
 }
 
 .iconview{
 	display: flex;
-	height: 95upx;
-	padding-left: 24upx;
+	padding-left: 12px;
 	align-items: center;
 }
 .iconbox{
-	height: 70upx;
-	line-height: 70upx;
-	letter-spacing: 20upx;
+	/* letter-spacing: 10px; */
 }
 </style>
