@@ -44,14 +44,27 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	@keyframes loginanimation
+	{
+		from {
+			background-color: RGB(255 255 224)
+		}
+		to {
+			background-color: RGB(255 215 0);
+		}
+	}
+	body{
+		animation: loginanimation 3s infinite alternate;
+	}
 	.getinbox{
 		margin-top: 200upx;
 	}
 	.viewin{
-		
+		box-shadow: 1px 1px 2px #808080;
 	}
 	.mt250{
 		margin-top: 250upx;
 	}
+	
 </style>
