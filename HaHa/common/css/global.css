@@ -60,6 +60,13 @@ body{
 }
 /* 主题图标样式 */
 
+/* 导航栏样式 */
+.stickybox{
+	position: sticky;
+	top:0;
+}
+/* 导航栏样式 */
+
 /* 简写样式,方便快速引用 */
 .fillwidth{
 	width: 100%;
