@@ -1,7 +1,7 @@
 #WhhCommonList组件的使用
   
 ##页面使用
- <whh-common-list @listClick="ClickFun" :rawdata="testData"></whh-common-list>
+ <whh-common-list :goUrl="item.url" :rawdata="item.rdata"></whh-common-list>
  
 ##数据说明
 * rawdata:{
@@ -13,17 +13,17 @@
 	tips2:'哦哦',//副备注
 	buttonColor: 'blue' //按钮颜色 , green, wineRed, blue, gray, red
 * }
-* 除了这些默认的控制组件显示的数据,也可以在rawdata中加入自己想要的数据,数据会传入@listClick事件中
+* goUrl: '点击列表项的跳转链接'
 
 ##事件说明
-* @listClick  -->输出rawdata中的数据,单纯的一个点击事件,需要修改,自行添加
+* 暂无事件函数
 
 ##完整的使用案例
 
 <template>
 	<view class="content">
 		<view class="listbox" v-for="(item,index) in player" :key="index">
-			<whh-common-list @listClick="ClickFun($event,index)" :rawdata="testData"></whh-common-list>
+			<whh-common-list :goUrl="item.url" :rawdata="item.rdata"></whh-common-list>
 		</view>
 	</view>
 </template>

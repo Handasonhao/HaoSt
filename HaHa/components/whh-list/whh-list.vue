@@ -42,12 +42,17 @@
 						buttonColor: 'blue'
 					}
 				}
+			},
+			goUrl:{
+				type:String,
+				default:''
 			}
 		},
 		methods:{
 			Clickevent:function(){
-				var option = this.rawdata;
-				this.$emit('listClick',option)
+				uni.navigateTo({
+					url: this.goUrl
+				});
 			}
 		},
 		

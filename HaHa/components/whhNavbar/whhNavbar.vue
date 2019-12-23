@@ -12,6 +12,11 @@
 					<icon v-show="saoma" class="WHH iconsaoma" @click="option('saoma')"></icon>
 					<icon v-show="search" class="WHH iconsearch" @click="option('search')"></icon>
 				</view>
+				<view :style="{width: navtitlewidth + 'px'}">
+					<view class="title">
+						{{navtitle}}
+					</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -26,7 +31,9 @@
 		data(){
 			return {
 				statusBarHeight: sysinfo.statusBarHeight,
-				navbarHeight: isnavbarHeight
+				navbarHeight: isnavbarHeight,
+				navtitlewidth: sysinfo.screenWidth - 180,
+				navtitle: this.title
 			}
 		},
 		props:{
@@ -41,6 +48,10 @@
 			search:{
 				type: Boolean,
 				default: false
+			},
+			title:{
+				type:String,
+				default:''
 			}
 		},
 		methods:{
@@ -108,6 +119,9 @@
 	display: flex;
 	padding-left: 12px;
 	align-items: center;
+}
+.title{
+	text-align: center;
 }
 .iconbox{
 	/* letter-spacing: 10px; */
