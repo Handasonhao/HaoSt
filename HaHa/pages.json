@@ -3,8 +3,7 @@
 		{
 			"path": "pages/login/login",
 			"style": {
-				"navigationBarTitleText": "登陆",
-				"navigationStyle":"custom"
+				"navigationBarTitleText": "登陆"
 			}
 		},
 		// {
@@ -19,7 +18,12 @@
 				"navigationBarTitleText": "登陆"
 			}
 		},
-		
+		{
+			"path": "pages/tabbar/collect/meteorshower/meteorShower",
+			"style": {
+				"navigationBarTitleText": "登陆"
+			}
+		},
 		{
 			"path": "pages/login/signin/signin",
 			"style": {
@@ -62,6 +66,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "HaHaDesign",
+		"navigationStyle":"custom",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
