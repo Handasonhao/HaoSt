@@ -24,7 +24,15 @@ class collectList{
 let list = [
 	new collectList('列表',''),
 	new collectList('列表',''),
-	new collectList('列表','')
+	new collectList('列表',''),
+	new collectList('列表',''),
+	new collectList('列表',''),
+	new collectList('列表',''),
+	new collectList('列表',''),
+	new collectList('列表',''),
+	new collectList('列表',''),
+	new collectList('列表',''),
+	
 ]
 
 export {
