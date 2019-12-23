@@ -12,7 +12,7 @@
 ##事件说明
 * @option: 返回点击的图标事件
 
-##完整的使用案例
+##完整的使用案例 
 
 > <template>
 >	<view class="content">
