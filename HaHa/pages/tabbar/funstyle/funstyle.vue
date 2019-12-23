@@ -1,46 +1,39 @@
 <template>
 	<view class="content">
 		<view class="stickybox">
-			<whhNavbar search @option="cccFun" ></whhNavbar>
+			<whh-navbar title="样式" search @option="cccFun" ></whh-navbar>
 		</view>
 		<image class="titleimg" src="../../../static/image/logo.png"></image>
-		<view class="showmsg">收集有趣的样式</view>
-		<view class="listbox" v-for="(item,index) in player" :key="index">
-			<whh-common-list @listClick="ClickFun($event,index)" :rawdata="testData"></whh-common-list>
+		<view class="showmsg">收集相关的学习资料,以及相关的网址</view>
+		<view class="listbox" v-for="(item,index) in list" :key="index">
+			<whh-common-list :goUrl="item.url" :rawdata="item.rdata"></whh-common-list>
 		</view>
 	</view>
 </template>
 
 <script>
-	import whhCommonList from '../../../components/whh-list/whh-list.vue';
+	import WhhCommonList from '../../../components/whh-list/whh-list.vue';
 	import whhNavbar from '../../../components/whhNavbar/whhNavbar.vue';
+	import {list} from './data.js';
 	export default {
 		data (){
 			return {
-				player:[1,2,3,4,5,6,7,8,9,10,11,12],
-				testData:{
-					imageSrc:'', //图片地址
-					buttonText:'',//按钮信息
-					title1:'', //主标题
-					title2:'',//副标题
-					tips1:'哦豁',
-					tips2:'',
-					buttonColor: 'blue' //按钮类型,-1表示默认颜色 0表示已申请颜色 1表示已审批颜色 2表示配送中颜色 3表示已完成颜色 4表示错误报警颜色
-				}
+				            //引入的js数据无法直接放入html中使用,需要转换一下,第一种方法,直接引入到data中
+			}
+		},
+		computed:{
+			list:function(){ 
+				return list; //第二种方法,引入计算属性进行监控数据的变化
 			}
 		},
 		onLoad() {
-			
+		
 		},
 		components:{
-			whhCommonList,
+			WhhCommonList,
 			whhNavbar
 		},
 		methods:{
-			ClickFun:function(e,i){
-				console.log("e" , e);
-				console.log("i: " , i);
-			},
 			cccFun:function(e){
 				console.log("e: " , e);
 			}
@@ -49,8 +42,5 @@
 </script>
 
 <style>
-.stickybox{
-	position: sticky;
-	top: 0;
-}
+	
 </style>
