@@ -37,6 +37,13 @@
 			}
 		},
 		{
+			"path": "pages/tabbar/components/whh-card-list/whh-card-list",
+			"style": {
+				"navigationBarTitleText": "卡片列表",
+				"navigationStyle":"default"
+			}
+		},
+		{
 			"path": "pages/tabbar/collect/collect",
 			"style": {
 				"navigationBarTitleText": "收藏"
