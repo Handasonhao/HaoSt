@@ -22,7 +22,7 @@ class collectList{
 }
 
 let list = [
-	new collectList('列表',''),
+	new collectList('卡片列表','./whh-card-list/whh-card-list'),
 	new collectList('列表',''),
 	new collectList('列表','')
 ]

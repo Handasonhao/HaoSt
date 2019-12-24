@@ -36,7 +36,7 @@
 							   });break;
 					case 'vs': uni.reLaunch({
 									url:'../tabbar/funstyle/funstyle'
-							   }) ;break;
+							   });break;
 				}
 			}
 		}
