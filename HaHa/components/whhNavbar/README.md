@@ -1,4 +1,4 @@
-#WhhCommonList组件的使用
+#whhavbar组件的使用
   
 ##页面使用
  <whh-navbar search title="收藏" @option="cccFun" ></whh-navbar>
