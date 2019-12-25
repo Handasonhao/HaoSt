@@ -1,7 +1,10 @@
 #WhhCommonList组件的使用
   
 ##页面使用
+
+```
  <whh-common-list :goUrl="item.url" :rawdata="item.rdata"></whh-common-list>
+ ```
  
 ##数据说明
 * rawdata:{
@@ -20,6 +23,7 @@
 
 ##完整的使用案例
 
+```
 <template>
 	<view class="content">
 		<view class="listbox" v-for="(item,index) in player" :key="index">
@@ -62,3 +66,4 @@
 
 <style>
 </style>
+```

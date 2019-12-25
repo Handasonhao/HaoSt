@@ -1,9 +1,11 @@
 #whhcardlist组件的使用
   
 ##页面使用
+```
  <whh-card-list :url="url" @gotourl="cardlistFun($event,index)" :cardListTitle="item.title">
  	<view class="imagebox"><i class="WHH" :class="icon"></i></view>
  </whh-card-list>
+```
  
 ##数据说明
 * url:卡片列表跳转的链接地址
@@ -14,6 +16,7 @@
 
 ##完整的使用案例
 
+```
 <template>
 	<view class="content">
 		<image class="titleimg" src="../../../static/image/logo.png"></image>
@@ -118,4 +121,4 @@
 		padding-bottom: 20upx;
 	}
 </style>
-
+```
