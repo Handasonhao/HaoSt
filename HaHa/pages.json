@@ -44,6 +44,13 @@
 			}
 		},
 		{
+			"path": "pages/tabbar/components/whh-crop-picture-upload/cropPictureUpload",
+			"style": {
+				"navigationBarTitleText": "照片裁剪",
+				"navigationStyle":"default"
+			}
+		},
+		{
 			"path": "pages/tabbar/collect/collect",
 			"style": {
 				"navigationBarTitleText": "收藏"
