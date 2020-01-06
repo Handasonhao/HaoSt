@@ -11,6 +11,7 @@ const basedata = {
 class collectdata{
 	constructor(tips1) {
 	    this.tips1 = tips1;
+		this.imageSrc = require('../../../static/image/haha.png');
 	}
 }
 

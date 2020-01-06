@@ -11,6 +11,7 @@ const basedata = {
 class collectdata{
 	constructor(tips1) {
 	    this.tips1 = tips1;
+		this.imageSrc = require('../../../static/image/haha.png');
 	}
 }
 
@@ -23,7 +24,7 @@ class collectList{
 
 let list = [
 	new collectList('卡片列表','./whh-card-list/whh-card-list'),
-	new collectList('列表',''),
+	new collectList('图片裁剪上传','./whh-crop-picture-upload/cropPictureUpload'),
 	new collectList('列表','')
 ]
 

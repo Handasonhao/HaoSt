@@ -1,7 +1,6 @@
 <template>
 	<view class="content">
-		<image class="titleimg" src="../../../static/image/logo.png"></image>
-		<view class="showmsg">不知道放啥,就关于了</view>
+		<image class="titleimg" style="margin-top: 150upx;" src="../../../static/image/logo.png"></image>
 		<view class="viewcardlist">
 			<whh-card-list v-for="(item,index) in list" :key="index" :url="item.url" @gotourl="cardlistFun($event,index)" :cardListTitle="item.title">
 				<view class="imagebox"><i class="WHH" :class="item.icon"></i></view>
@@ -22,8 +21,7 @@
 				   		{icon:'iconsearch',title:'搜索',url:''},
 				   		{icon:'iconsaoma',title:'扫一扫',url:''},
 				   		{icon:'iconyonghu',title:'个人中心',url:''}
-				   		],																				//引入的js数据无法直接放入html中使用,需要转换一下,第一种方法,直接引入到data中
-																				
+				   		],		//引入的js数据无法直接放入html中使用,需要转换一下,第一种方法,直接引入到data中
 			}
 		},
 		computed:{
@@ -43,7 +41,7 @@
 			}
 		}
 	}
-</script>
+</script>   
 
 <style lang="scss">
 /***** 项目字体图标引入 *****/
@@ -90,6 +88,11 @@
 }
 
 /***** 项目字体图标引入 *****/
+	body{
+		background: url("http://img2.imgtn.bdimg.com/it/u=2615306122,229408969&fm=214&gp=0.jpg") no-repeat;
+		background-size: 100% 40%;
+		background-color: #EEEEEE;
+	}
 	.imagebox{
 		margin-left: 30upx;
 	}

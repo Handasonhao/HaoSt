@@ -3,7 +3,7 @@
 		<view class="stickybox">
 			<whh-navbar search title="收藏" @option="cccFun" ></whh-navbar>
 		</view>
-		<image class="titleimg" src="../../../static/image/logo.png"></image>
+		<image class="titleimg" :src="logo"></image>
 		<view class="showmsg">收集相关的学习资料,以及相关的网址</view>
 		<view class="listbox" v-for="(item,index) in list" :key="index">
 			<whh-common-list :goUrl="item.url" :rawdata="item.rdata"></whh-common-list>
@@ -14,11 +14,13 @@
 <script>
 	import WhhCommonList from '../../../components/whh-list/whh-list.vue';
 	import whhNavbar from '../../../components/whhNavbar/whhNavbar.vue';
+	import tlogo from '../../../static/image/logo.png'
 	import {list} from './data.js';
 	export default {
 		data (){
 			return {
-				            //引入的js数据无法直接放入html中使用,需要转换一下,第一种方法,直接引入到data中
+				logo: tlogo   //或者使用 require('../../../static/image/logo.png')
+				             //引入的js数据无法直接放入html中使用,需要转换一下,第一种方法,直接引入到data中
 			}
 		},
 		computed:{
@@ -27,7 +29,7 @@
 			}
 		},
 		onLoad() {
-		
+			console.log("list: " , list);
 		},
 		components:{
 			WhhCommonList,
