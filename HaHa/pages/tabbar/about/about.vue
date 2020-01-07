@@ -2,7 +2,7 @@
 	<view class="content">
 		<image class="titleimg" style="margin-top: 150upx;" src="../../../static/image/logo.png"></image>
 		<view class="viewcardlist">
-			<whh-card-list v-for="(item,index) in list" :key="index" :url="item.url" @gotourl="cardlistFun($event,index)" :cardListTitle="item.title">
+			<whh-card-list v-for="(item,index) in list" :lineclass="index==0?'':'lineclass'" :key="index" :url="item.url" @gotourl="cardlistFun($event,index)" :cardListTitle="item.title">
 				<view class="imagebox"><i class="WHH" :class="item.icon"></i></view>
 			</whh-card-list>
 		</view>
@@ -102,6 +102,5 @@
 		border-radius: 10upx;
 		background: white;
 		width: 95%;
-		padding-bottom: 20upx;
 	}
 </style>
