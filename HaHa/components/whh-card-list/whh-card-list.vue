@@ -1,5 +1,5 @@
 <template>
-	<view class="whhcardlistbox" @click="gotowhere">
+	<view class="whhcardlistbox" :class="lineclass" hover-class="hoverClass" :hover-stay-time="50" @click="gotowhere">
 		<view class="itemcard">
 			<slot></slot>
 			<view class="cardlisttitle">{{cardListTitle}}</view>
@@ -32,9 +32,13 @@
 				type:String,
 				default:''
 			},
-			url:{
+			url:{ //跳转链接
 				type:String,
 				default:''
+			},
+			lineclass:{ //组件的分割线
+				type:String,
+				default:'lineclass'
 			}
 		}
 	}
@@ -68,8 +72,15 @@
 		width: 95%;
 		margin: 0 auto;
 		background: white;
+		&.lineclass{
+			border-top: solid 1px #EEEEEE;
+		}
+	}
+	.hoverClass{
+		background: #fafafa;
 	}
 	.cardlisttitle{
+		font-size: 35upx;
 		margin-left: 30upx;
 	}
 	.itemcard{
@@ -78,7 +89,7 @@
 		justify-content: flex-start;
 		padding-top: 20upx;
 		padding-bottom: 20upx;
-		border-bottom: solid 1px #EEEEEE;
+		// border-bottom: solid 1px #EEEEEE;
 	}
 	.mr20{
 		margin-left: auto;
