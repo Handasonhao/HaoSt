@@ -25,7 +25,7 @@ class collectList{
 let list = [
 	new collectList('卡片列表','./whh-card-list/whh-card-list'),
 	new collectList('图片裁剪上传','./whh-crop-picture-upload/cropPictureUpload'),
-	new collectList('列表','')
+	new collectList('宫格菜单','./whh-gridbox/whh-gridbox')
 ]
 
 export {
