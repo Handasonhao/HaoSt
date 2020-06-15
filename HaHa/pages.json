@@ -74,9 +74,15 @@
 			"style": {
 				"navigationBarTitleText": "小程序"
 			}
-		}
-		
-	],
+		},
+	    {
+            "path" : "pages/tabbar/components/whh-gridbox/whh-gridbox",
+            "style" : {
+				"navigationBarTitleText": "宫格菜单",
+				"navigationStyle":"default"
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "HaHaDesign",
